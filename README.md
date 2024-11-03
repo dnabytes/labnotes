@@ -1,6 +1,10 @@
 # labnotes
 A digital laboratory notebook
 
+## Dependencies
+
+* [Rich](https://pypi.org/project/rich/)
+
 ## Installation
 
 ```bash
