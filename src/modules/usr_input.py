@@ -1,5 +1,6 @@
 import sys
 from modules import misc
+from modules.constants import DEFAULT_N_LINES
 from classes.Notebook import Notebook
 
 def select_project(notebooks: list[Notebook]):
@@ -29,11 +30,8 @@ def get_search_query():
     return query
 
 def get_n_notes(option):
-    if len(sys.argv) < 3: # default value
-        if option == 'readall':
-            return 7
-        if option == 'read':
-            return 10
+    if len(sys.argv) < 3:
+        return DEFAULT_N_LINES[option]
     n_notes = sys.argv[2]
     if n_notes == 'all':
         return 0
