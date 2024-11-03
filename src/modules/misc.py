@@ -1,6 +1,7 @@
 import sys
 import os
 from classes.Notebook import Notebook
+from modules.constants import HELP, OPTIONS_NEED_CONTENT
 
 def go_to_projects_path():
     projects_path = os.getenv('projects_path')
@@ -20,22 +21,10 @@ def get_projects():
 def get_notebooks(projects, option):
     notebooks = [Notebook(project) for project in projects]
     notebooks_w_content = [notebook for notebook in notebooks if notebook.has_content]
-    if option in ['read', 'readall', 'search'] and not notebooks_w_content:
+    if option in OPTIONS_NEED_CONTENT and not notebooks_w_content:
         sys.exit('All notebooks are empty')
     return notebooks, notebooks_w_content
 
 def help():
-    help =  ('\n').join(
-        (
-            'Usage: labnotes OPTION',
-            '',
-            'Options:',
-            '',
-            '  read [n_notes:int or "all"] (default 10)',
-            '  readall [n_notes:int or "all"] (default 7)',
-            '  add',
-            '  search query:str'
-        )
-    )
-    print(help)
+    print(('\n').join(HELP))
     sys.exit(0)
