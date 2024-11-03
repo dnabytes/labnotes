@@ -1,6 +1,6 @@
 import sys
 from modules import misc
-from modules.constants import DEFAULT_N_LINES
+from modules.constants import DEFAULT_N_LINES, OPTIONS_ALL
 from classes.Notebook import Notebook
 
 def select_project(notebooks: list[Notebook]):
@@ -14,7 +14,7 @@ def select_project(notebooks: list[Notebook]):
         print('Wrong value, try again')
 
 def get_args():
-    if len(sys.argv) < 2 or sys.argv[1] not in ['help', 'add', 'read', 'readall', 'search'] or sys.argv[1] == 'help':
+    if len(sys.argv) < 2 or sys.argv[1] not in OPTIONS_ALL or sys.argv[1] == 'help':
         misc.help()
 
     option = sys.argv[1]

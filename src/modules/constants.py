@@ -19,3 +19,11 @@ OPTIONS_NEED_CONTENT = [
     'readall',
     'search'
 ]
+
+OPTIONS_ALL = [
+    'help',
+    'add',
+    'read',
+    'readall',
+    'search'
+]
